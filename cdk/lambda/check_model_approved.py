@@ -1,7 +1,8 @@
 import os
 import boto3
 
-sagemaker = boto3.client("sagemaker")
+REGION = os.environ.get("SAGEMAKER_REGION")
+sagemaker = boto3.client("sagemaker", region_name=REGION) if REGION else boto3.client("sagemaker")
 MODEL_PACKAGE_GROUP_NAME = os.environ["MODEL_PACKAGE_GROUP_NAME"]
 
 

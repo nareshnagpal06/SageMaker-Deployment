@@ -37,3 +37,9 @@ The model package group name can be provided via CDK context:
 ```bash
 cdk deploy -a cdk/app.py -c model_package_group_name=MyModelGroup
 ```
+
+Optionally specify a region to query the model registry by providing `model_region`:
+
+```bash
+cdk deploy -a cdk/app.py -c model_region=us-west-2
+```

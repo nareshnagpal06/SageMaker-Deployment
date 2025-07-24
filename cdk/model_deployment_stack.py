@@ -20,7 +20,8 @@ class ModelDeploymentStack(Stack):
             handler="check_model_approved.handler",
             code=_lambda.Code.from_asset("lambda"),
             environment={
-                "MODEL_PACKAGE_GROUP_NAME": self.node.try_get_context("model_package_group_name") or "MyModelGroup"
+                "MODEL_PACKAGE_GROUP_NAME": self.node.try_get_context("model_package_group_name") or "MyModelGroup",
+                "SAGEMAKER_REGION": self.node.try_get_context("model_region") or Stack.of(self).region,
             },
         )
 
